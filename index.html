@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Iki</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">IK<span>I</span></div>
+        <ul class="nav-links">
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skills">Keahlian</a></li>
+            <li><a href="#certificates">Sertifikat</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <p class="greeting">Halo, Saya</p>
+            <h1 class="name">IKI</h1>
+            <h2 class="role">Network & Computer Engineering Enthusiast</h2>
+            <p class="bio">Siswa Teknik Komputer & Jaringan yang berfokus pada Administrasi Jaringan, Cybersecurity, dan konfigurasi server.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Hubungi Saya</a>
+                <a href="#certificates" class="btn btn-outline">Lihat Sertifikat</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title">Tentang <span>Saya</span></h2>
+        <div class="about-card">
+            <p>Saya seorang siswa yang berdedikasi dan berprestasi di bidang Teknik Komputer dan Jaringan (TKJ). Memiliki pengalaman teknis dalam konfigurasi perangkat Mikrotik & Cisco, setup server Linux (Debian), serta pemahaman dasar keamanan siber. Berpengalaman meraih kejuaraan kompetisi jaringan dan siap terus berkembang di dunia teknologi jaringan modern.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2 class="section-title">Keahlian <span>Utama</span></h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fa-solid fa-network-wired skill-icon"></i>
+                <h3>Network Administration</h3>
+                <p>Konfigurasi MikroTik (Winbox/CLI), Cisco Switches/Routers, VLAN, DHCP Relay, NAT, & Routing.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-server skill-icon"></i>
+                <h3>Server Administration</h3>
+                <p>Setup server Debian Linux, BIND9 DNS, VPN (OpenVPN/PPTP), Mail Server (Postfix/Dovecot/Roundcube).</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-shield-halved skill-icon"></i>
+                <h3>Cybersecurity Dasar</h3>
+                <p>Pemahaman Capture The Flag (CTF), reverse engineering dasar, dan security auditing menggunakan Kali Linux.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="section">
+        <h2 class="section-title">Sertifikat <span>& Pelatihan</span></h2>
+        <p class="section-subtitle">Klik nama sertifikat di bawah ini untuk melihat dokumen/foto asli.</p>
+
+        <!-- Container ini akan diisi secara otomatis oleh JavaScript -->
+        <div class="cert-list" id="certificate-list">
+            <!-- Item sertifikat akan dimuat dari script.js -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title">Hubungi <span>Saya</span></h2>
+        <div class="contact-cards">
+            <div class="contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <p>Email: zikri.azka.2009@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <i class="fa-brands fa-github"></i>
+                <p>GitHub: github.com/zikri-169</p>
+            </div>
+            <div class="contact-item">
+                <i class="fa-brands fa-linkedin"></i>
+                <p>LinkedIn: linkedin.com/in/zikri-azka-9b2140401</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal / Popup Sertifikat -->
+    <div id="certModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle">Sertifikat</h3>
+            <div class="img-container">
+                <img id="modalImg" src="" alt="Certificate Preview">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Iki. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
