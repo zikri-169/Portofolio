@@ -1,118 +1,278 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio - Zikri Azka Maulana</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio Zikri — Network & Cyber Security</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Navigation -->
+  <!-- Efek Sorot & Ambient Background -->
+  <div id="glow-bg"></div>
+  <div id="ambient-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <header>
     <nav>
-        <div class="logo">ZIK<span>RI</span></div>
-        <ul class="nav-links">
-            <li><a href="#hero">Beranda</a></li>
-            <li><a href="#about">Tentang</a></li>
-            <li><a href="#skills">Keahlian</a></li>
-            <li><a href="#certificates">Sertifikat</a></li>
-            <li><a href="#contact">Kontak</a></li>
-        </ul>
+      <button class="nav-link active" onclick="switchTab('profile', this)">Profile</button>
+      <button class="nav-link" onclick="switchTab('portfolio', this)">Portfolio</button>
+      <button class="nav-link" onclick="switchTab('contact', this)">Contact</button>
     </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <p class="greeting">Halo, Saya</p>
-            <h1 class="name">ZIKRI AZKA MAULANA</h1>
-            <h2 class="role">Network & Computer Engineering Enthusiast</h2>
-            <p class="bio">Siswa Teknik Komputer & Jaringan yang berfokus pada Administrasi Jaringan, Cybersecurity, dan konfigurasi server.</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Hubungi Saya</a>
-                <a href="#certificates" class="btn btn-outline">Lihat Sertifikat</a>
-            </div>
+  <main class="viewport">
+
+    <!-- SECTION PROFILE -->
+    <section id="profile" class="section-slide active">
+      <div class="bento-grid">
+        
+        <div class="bento-card col-8">
+          <div class="status-badge"><span class="pulse-dot"></span> Terbuka untuk Kesempatan PKL / Internship</div>
+          <h1>Halo, Saya <span class="highlight-gold">Zikri Azka Maulana</span> 👋</h1>
+          <p class="hero-desc">Siswa Teknik Komputer & Jaringan (TKJ) yang berfokus pada arsitektur jaringan yang stabil, manajemen server Linux, serta eksplorasi keamanan sistem.</p>
+          <div class="btn-group">
+            <a href="mailto:zikri.azka.2009@gmail.com" class="btn-gold">Kirim Email</a>
+            <a href="#" class="btn-secondary">Unduh CV (PDF)</a>
+          </div>
         </div>
+
+        <div class="bento-card col-4 center-content">
+          <span class="sub-label">SPESIALISASI UTAMA</span>
+          <p class="highlight-text">Network & System Support</p>
+          <span class="mono-tag">Kerabat Kita Private Vocational High School, Bumiayu</span>
+        </div>
+
+        <div class="bento-card col-12">
+          <h2>Tentang Saya & Fokus Pengembangan</h2>
+          <p>Memiliki ketertarikan mendalam pada dunia jaringan komputer dan infrastruktur server. Terbiasa mengonfigurasi perangkat keras maupun lunak, merancang jalur kabel, subnetting, hingga melakukan troubleshooting sistem secara terstruktur.</p>
+          <p style="margin-top: 10px;">Saat ini aktif mendalami <strong>Network System Administration</strong>, penyusunan arsitektur routing & switching, pengujian celah keamanan jaringan, serta persiapan sertifikasi teknis industri.</p>
+        </div>
+
+        <div class="bento-card col-12 skill-header-card">
+          <h2>Keahlian & Technical Skills</h2>
+        </div>
+
+        <div class="bento-card col-4 interactive-skill-card">
+          <div class="floating-logos">
+            <img src="https://cdn.simpleicons.org/mikrotik/f59e0b" alt="MikroTik" class="float-logo logo-1">
+            <img src="https://cdn.simpleicons.org/cisco/f59e0b" alt="Cisco" class="float-logo logo-2">
+          </div>
+          <div class="card-content">
+            <h3>Networking & Routing</h3>
+            <p>Konfigurasi MikroTik RouterOS (VLAN, Bandwidth Management, Tunneling, NAT) & dasar routing/switching Cisco Packet Tracer.</p>
+          </div>
+        </div>
+
+        <div class="bento-card col-4 interactive-skill-card">
+          <div class="floating-logos">
+            <img src="https://cdn.simpleicons.org/debian/f59e0b" alt="Debian" class="float-logo logo-1">
+            <img src="https://cdn.simpleicons.org/ubuntu/f59e0b" alt="Ubuntu" class="float-logo logo-2">
+          </div>
+          <div class="card-content">
+            <h3>System Administration</h3>
+            <p>Pengelolaan server Linux (Debian/Ubuntu), DNS Server (BIND9), Web Server, Mail Server, SSH, & Layanan VPN.</p>
+          </div>
+        </div>
+
+        <div class="bento-card col-4 interactive-skill-card">
+          <div class="floating-logos">
+            <img src="https://cdn.simpleicons.org/kalilinux/f59e0b" alt="Kali Linux" class="float-logo logo-1">
+            <img src="https://cdn.simpleicons.org/wireshark/f59e0b" alt="Wireshark" class="float-logo logo-2">
+          </div>
+          <div class="card-content">
+            <h3>Cyber Security & Audit</h3>
+            <p>Analisis paket data Wireshark, pemindaian port via Nmap, serta pemahaman dasar Capture The Flag (CTF).</p>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <h2 class="section-title">Tentang <span>Saya</span></h2>
-        <div class="about-card">
-            <p>Saya seorang siswa yang berdedikasi dan berprestasi di bidang Teknik Komputer dan Jaringan (TKJ). Memiliki pengalaman teknis dalam konfigurasi perangkat Mikrotik & Cisco, setup server Linux (Debian), serta pemahaman dasar keamanan siber. Berpengalaman meraih kejuaraan kompetisi jaringan dan siap terus berkembang di dunia teknologi jaringan modern.</p>
+    <!-- SECTION PORTFOLIO -->
+    <section id="portfolio" class="section-slide">
+      <div class="bento-grid">
+        
+        <div class="bento-card col-6">
+          <h2>Multi-VLAN & Dynamic Routing</h2>
+          <p>Perancangan dan konfigurasi segmentasi jaringan skala menengah menggunakan MikroTik & Cisco, dilengkapi DHCP Relay, Firewall Filter, dan NAT Masquerade.</p>
         </div>
+
+        <div class="bento-card col-6">
+          <h2>Enterprise Linux Server Deployment</h2>
+          <p>Membangun layanan server berbasis Debian Linux secara mandiri, mencakup DNS Server (BIND9), Mail Server (Postfix/Dovecot), dan akses secure VPN.</p>
+        </div>
+
+       
+        <div class="bento-card col-12">
+          <h2>Riwayat Kompetisi & Prestasi</h2>
+          
+          <div class="timeline-item highlight-gold-border">
+            <h3>Runner-up LKS Network System Administration</h3>
+            <span class="sub-label-gold">Tingkat Kabupaten — Prestasi Utama</span>
+            <p>Mengonfigurasi infrastruktur jaringan dan deployment server Debian secara presisi di bawah tekanan waktu kompetisi.</p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>Peserta Lomba Cyber Security</h3>
+            <span class="sub-label">Tingkat Provinsi / Kota</span>
+            <p>Mengikuti tantangan eksploitasi celah keamanan sistem dan analisis paket data.</p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>Peserta Olimpiade Jaringan MikroTik   </h3>
+              <span class="sub-label">Tingkat Nasional</span>
+            <p>Menguji ketangkasan perancangan topologi jaringan, pengkabelan, dan troubleshooting routing dasar.</p>
+          </div>
+
+          <h2 style="margin-top: 32px;">Sertifikasi & Lisensi</h2>
+          <p style="margin-bottom: 12px;">Klik nama sertifikat untuk membuka preview:</p>
+
+          <div class="cert-list">
+            <button class="cert-btn" onclick="openCert('assets/images/certs/IDN-jaringan-komputer-dasar.svg', 'CNA Networking Basics')">
+              📃 CNA Networking Basics
+            </button>
+            <button class="cert-btn" onclick="openCert('assets/images/certs/IDN-jaringan-komputer-dasar.svg', 'CNA IT Customer Support Basics')">
+              📃 CNA IT Customer Support Basics
+            </button>
+            <button class="cert-btn" onclick="openCert('assets/images/certs/DAMC-REVOU-mini-course.svg', 'ReVoU Mini Course Certificate')">
+              📜 DAMC ReVoU Mini Course
+            </button>
+            <button class="cert-btn" onclick="openCert('assets/images/certs/IDN-Cyber-Security-Dasar.svg', 'IDN Cyber Security Dasar')">
+              📜 IDN Cyber Security Dasar
+            </button>
+            <button class="cert-btn" onclick="openCert('assets/images/certs/IDN-jaringan-komputer-dasar.svg', 'IDN Jaringan Komputer Dasar')">
+              📜 IDN Jaringan Komputer Dasar
+            </button>
+            <button class="cert-btn" onclick="openCert('assets/images/certs/IDN-jaringan-komputer-dasar.svg', 'IDN MikroTik Dasar')">
+              📜 IDN MikroTik Dasar
+              
+            </button>
+            <button class="cert-btn" onclick="openCert('assets/images/certs/IDN-jaringan-komputer-dasar.svg', 'IDN Cisco Dasar')">
+              📜 IDN Cisco Dasar
+            </button>
+            <button class="cert-btn" onclick="openCert('assets/images/certs/IDN-jaringan-komputer-dasar.svg', 'IDN Linux Basic')">
+              📜 IDN Linux Basic
+            </button>
+            <button class="cert-btn" onclick="openCert('assets/images/certs/IDN-jaringan-komputer-dasar.svg', 'IDN PNETlab')">
+              📜 IDN PNETlab
+             
+            </button>
+            <button class="cert-btn" onclick="openCert('assets/images/certs/IDN-jaringan-komputer-dasar.svg', 'IDN Pemrograman Dart Dasar')">
+              📜 IDN Pemrograman Dart Dasar
+            </button>
+            <button class="cert-btn" onclick="openCert('assets/images/certs/IDN-jaringan-komputer-dasar.svg', 'IDN Course OOP')">
+              📜 IDN Course OOP
+          </button>
+          </div> 
+        </div>
+
+      </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <h2 class="section-title">Keahlian <span>Utama</span></h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <i class="fa-solid fa-network-wired skill-icon"></i>
-                <h3>Network Administration</h3>
-                <p>Konfigurasi MikroTik (Winbox/CLI), Cisco Switches/Routers, VLAN, DHCP Relay, NAT, & Routing.</p>
-            </div>
-            <div class="skill-card">
-                <i class="fa-solid fa-server skill-icon"></i>
-                <h3>Server Administration</h3>
-                <p>Setup server Debian Linux, BIND9 DNS, VPN (OpenVPN/PPTP), Mail Server (Postfix/Dovecot/Roundcube).</p>
-            </div>
-            <div class="skill-card">
-                <i class="fa-solid fa-shield-halved skill-icon"></i>
-                <h3>Cybersecurity Dasar</h3>
-                <p>Pemahaman Capture The Flag (CTF), reverse engineering dasar, dan security auditing menggunakan Kali Linux.</p>
-            </div>
+    <!-- SECTION CONTACT -->
+    <section id="contact" class="section-slide">
+      <div class="bento-grid">
+        
+        <div class="bento-card col-12">
+          <h2>Mari Terhubung & Bekerja Sama 🤝</h2>
+          <p>Terbuka untuk kesempatan Magang / PKL, kolaborasi proyek jaringan, atau sekadar diskusi teknis seputar dunia IT.</p>
         </div>
+
+        <div class="bento-card col-5">
+          <h3>Informasi Kontak</h3>
+          <p style="margin-bottom: 20px;">Silakan hubungi saya melalui jalur resmi di bawah ini:</p>
+
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <span class="info-icon">📧</span>
+              <div>
+                <span class="sub-label">Email Direct</span>
+                <p class="info-val">zikri.azka.2009@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <span class="info-icon">📱</span>
+              <div>
+                <span class="sub-label">WhatsApp / Phone</span>
+                <p class="info-val">+62 877-7596-0749</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <span class="info-icon">📍</span>
+              <div>
+                <span class="sub-label">Lokasi Domisili</span>
+                <p class="info-val">Indonesia</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <span class="info-icon">💼</span>
+              <div>
+                <span class="sub-label">Status Saat Ini</span>
+                <p class="info-val highlight-gold-text">Available for Internship / PKL</p>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="margin-top: 24px; margin-bottom: 12px;">Social Media</h3>
+          <div class="social-grid">
+            <a href="https://github.com/zikri-169" target="_blank" class="social-card">GitHub ↗</a>
+            <a href="https://bit.ly/4wXD4Vr" target="_blank" class="social-card">LinkedIn ↗</a>
+            <a href="https://www.instagram.com/zikri.ianad?igsh=MWRqb2FjZ3llaDBwOQ==" target="_blank" class="social-card">Instagram ↗</a>
+          </div>
+        </div>
+
+        <div class="bento-card col-7">
+          <h3>Kirim Pesan Langsung</h3>
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Pesan berhasil terkirim!');">
+            <div class="form-group">
+              <label for="name">Nama Lengkap</label>
+              <input type="text" id="name" placeholder="Masukkan nama Anda..." required>
+            </div>
+            <div class="form-group">
+              <label for="email">Alamat Email</label>
+              <input type="email" id="email" placeholder="nama@email.com..." required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subjek / Topik</label>
+              <input type="text" id="subject" placeholder="Peluang PKL / Diskusi Project..." required>
+            </div>
+            <div class="form-group">
+              <label for="message">Pesan / Diskusi</label>
+              <textarea id="message" rows="4" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
+            </div>
+            <button type="submit" class="btn-gold" style="width: 100%; text-align: center; justify-content: center; border: none; cursor: pointer;">
+              Kirim Pesan Sekarang 🚀
+            </button>
+          </form>
+        </div>
+
+      </div>
     </section>
 
-    <!-- Certificates Section -->
-    <section id="certificates" class="section">
-        <h2 class="section-title">Sertifikat <span>& Pelatihan</span></h2>
-        <p class="section-subtitle">Klik nama sertifikat di bawah ini untuk melihat dokumen/foto asli.</p>
+  </main>
 
-        <!-- Container ini akan diisi secara otomatis oleh JavaScript -->
-        <div class="cert-list" id="certificate-list">
-            <!-- Item sertifikat akan dimuat dari script.js -->
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <h2 class="section-title">Hubungi <span>Saya</span></h2>
-        <div class="contact-cards">
-            <div class="contact-item">
-                <i class="fa-solid fa-envelope"></i>
-                <p>Email: zikri.azka.2009@gmail.com</p>
-            </div>
-            <div class="contact-item">
-                <i class="fa-brands fa-github"></i>
-                <p>GitHub: github.com/zikri-169</p>
-            </div>
-            <div class="contact-item">
-                <i class="fa-brands fa-linkedin"></i>
-                <p>LinkedIn: linkedin.com/in/zikri-azka-9b2140401</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal / Popup Sertifikat -->
-    <div id="certModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h3 id="modalTitle">Sertifikat</h3>
-            <div class="img-container">
-                <img id="modalImg" src="" alt="Certificate Preview">
-            </div>
-        </div>
+  <!-- Modal Cert Preview -->
+  <div id="cert-modal" class="modal" onclick="closeCert()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeCert()">&times;</span>
+      <h3 id="modal-title">Certificate Preview</h3>
+      <img id="cert-img" src="" alt="Sertifikat SVG">
     </div>
+  </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Iki. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
-
