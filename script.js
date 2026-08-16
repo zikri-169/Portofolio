@@ -1,79 +1,83 @@
-// =========================================================================
-// DATA SERTIFIKAT (PATOKAN UNTUK MENAMBAH FOTO/SERTIFIKAT BARU)
-// =========================================================================
-// Untuk menambah sertifikat baru:
-// Cukup tambahkan objek baru di dalam array `certificates` di bawah ini.
+let activeTabId = 'profile';
+let isAnimating = false;
 
-const certificates = [
-    {
-        title: "RevoU Mini Course - Data Analytics (DAMC)",
-        file: "DAMC-REVOU-mini-course.svg"
-    },
-    {
-        title: "IDN Network - Cyber Security Dasar",
-        file: "IDN-Cyber-Security-Dasar.svg"
-    },
-    {
-        title: "IDN Network - Jaringan Komputer Dasar",
-        file: "IDN-jaringan-komputer-dasar.svg"
-    }
-
-    // 💡 PATOKAN CONTOH CARA MENAMBAH SERTIFIKAT KE-4 KELAK:
-    // ,{
-    //     title: "Judul Sertifikat Baru Anda",
-    //     file: "nama-file-sertifikat-baru.svg"
-    // }
-];
-
-// =========================================================================
-// LOGIKA TAMPILAN & POPUP (TIDAK PERLU DIUBAH-UBAH)
-// =========================================================================
-
-document.addEventListener("DOMContentLoaded", function() {
-    renderCertificates();
+// 1. Logika Pergerakan Spotlight/Kursor
+window.addEventListener('mousemove', (e) => {
+  const glow = document.getElementById('glow-bg');
+  if (glow) {
+    glow.style.background = `radial-gradient(650px at ${e.clientX}px ${e.clientY}px, rgba(245, 158, 11, 0.2), transparent 70%)`;
+  }
 });
 
-function renderCertificates() {
-    const certListContainer = document.getElementById("certificate-list");
-    certListContainer.innerHTML = "";
-
-    certificates.forEach((cert) => {
-        const certItem = document.createElement("div");
-        certItem.className = "cert-item";
-        certItem.setAttribute("onclick", `openModal('${cert.title}', '${cert.file}')`);
-
-        certItem.innerHTML = `
-            <div class="cert-info">
-                <i class="fa-solid fa-file-certificate"></i>
-                <span class="cert-name">${cert.title}</span>
-            </div>
-            <span class="cert-badge">Lihat Foto <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-        `;
-
-        certListContainer.appendChild(certItem);
-    });
+// 2. Animasi Masuk GSAP (In)
+function animateIn(element) {
+  const cards = element.querySelectorAll('.bento-card');
+  return gsap.fromTo(cards, 
+    { y: 30, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.4, stagger: 0.05, ease: "power2.out" }
+  );
 }
 
-function openModal(title, fileName) {
-    const modal = document.getElementById("certModal");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalImg = document.getElementById("modalImg");
+// 3. Tab Switching System
+function switchTab(targetId, btnElement) {
+  if (isAnimating || activeTabId === targetId) return;
+  isAnimating = true;
 
-    modalTitle.textContent = title;
-    modalImg.src = fileName; 
+  document.querySelectorAll('.nav-link').forEach(btn => btn.classList.remove('active'));
+  btnElement.classList.add('active');
 
-    modal.style.display = "flex";
-}
+  const currentSlide = document.getElementById(activeTabId);
+  const nextSlide = document.getElementById(targetId);
 
-function closeModal() {
-    const modal = document.getElementById("certModal");
-    modal.style.display = "none";
-}
+  // Animasi Keluar GSAP (Out)
+  gsap.to(currentSlide.querySelectorAll('.bento-card'), {
+    y: -30,
+    opacity: 0,
+    duration: 0.3,
+    stagger: 0.04,
+    ease: "power2.in",
+    onComplete: () => {
+      currentSlide.classList.remove('active');
+      nextSlide.classList.add('active');
 
-window.onclick = function(event) {
-    const modal = document.getElementById("certModal");
-    if (event.target === modal) {
-        modal.style.display = "none";
+      // Animasi Masuk GSAP (In)
+      const anim = animateIn(nextSlide);
+      anim.eventCallback("onComplete", () => {
+        activeTabId = targetId;
+        isAnimating = false;
+      });
     }
-};
+  });
+}
 
+// 4. Modal Sertifikat Preview
+function openCert(imagePath, title) {
+  const modal = document.getElementById('cert-modal');
+  const modalImg = document.getElementById('cert-img');
+  const modalTitle = document.getElementById('modal-title');
+
+  modalImg.src = imagePath;
+  modalTitle.textContent = title;
+  modal.style.display = 'flex';
+
+  gsap.fromTo('.modal-content', 
+    { scale: 0.85, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.5)" }
+  );
+}
+
+function closeCert() {
+  gsap.to('.modal-content', {
+    scale: 0.85,
+    opacity: 0,
+    duration: 0.2,
+    onComplete: () => {
+      document.getElementById('cert-modal').style.display = 'none';
+    }
+  });
+}
+
+// Inisialisasi Pertama Kali Load
+window.addEventListener('DOMContentLoaded', () => {
+  animateIn(document.getElementById('profile'));
+});
