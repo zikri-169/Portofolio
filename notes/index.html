@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perpustakaan Catatan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Animated Blobs -->
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Perpustakaan Catatan</h1>
+      <p class="subtitle">Kumpulan dokumentasi, materi & catatan pribadi</p>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Cari judul catatan..." onkeyup="filterNotes()">
+    </div>
+
+    <!-- Main Note List Container -->
+    <main class="note-list" id="noteList">
+      
+      <!-- Setiap link berpindah/redirect ke file HTML terpisah -->
+      <a href="debian-server.html" class="note-card">
+        <div class="note-info">
+          <h3>Konfigurasi Dasar Server Debian</h3>
+          <span class="note-tag">Linux / Networking</span>
+        </div>
+        <span class="arrow">&rarr;</span>
+      </a>
+
+      <a href="winbox-routing.html" class="note-card">
+        <div class="note-info">
+          <h3>Routing & Bandwidth Control WinBox</h3>
+          <span class="note-tag">MikroTik</span>
+        </div>
+        <span class="arrow">&rarr;</span>
+      </a>
+
+      <a href="ccst-prep.html" class="note-card">
+        <div class="note-info">
+          <h3>Persiapan & Ringkasan Materi CCST</h3>
+          <span class="note-tag">Cisco</span>
+        </div>
+        <span class="arrow">&rarr;</span>
+      </a>
+
+      <a href="bca-scholarship.html" class="note-card">
+        <div class="note-info">
+          <h3>Persyaratan & Tips Beasiswa BCA</h3>
+          <span class="note-tag">Education</span>
+        </div>
+        <span class="arrow">&rarr;</span>
+      </a>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
