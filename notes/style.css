@@ -3,18 +3,18 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {
-  background-color: #0b0c10;
+  background-color: #08090c;
   color: #e0e0e0;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
 }
 
-/* Background Animation (Glowing Blobs) */
+/* Background Animated Blobs Dynamic */
 .bg-blobs {
   position: fixed;
   top: 0;
@@ -29,146 +29,200 @@ body {
 .blob {
   position: absolute;
   border-radius: 50%;
-  opacity: 0.22;
-  animation: float 14s infinite alternate ease-in-out;
+  opacity: 0.35;
+  mix-blend-mode: screen;
 }
 
 .blob-1 {
-  width: 320px;
-  height: 320px;
-  background: #d4af37; /* Warm Gold */
-  top: 8%;
-  left: 12%;
+  width: 500px;
+  height: 500px;
+  top: -10%;
+  left: -5%;
+  background: linear-gradient(45deg, #d4af37, #ff007f, #7f00ff, #00f2fe);
+  background-size: 400% 400%;
+  animation: floatMove1 22s infinite ease-in-out, smoothColor 18s ease-in-out infinite;
 }
 
 .blob-2 {
-  width: 420px;
-  height: 420px;
-  background: #8a6d1b; /* Dark Gold/Bronze */
-  bottom: 10%;
-  right: 8%;
-  animation-delay: -6s;
+  width: 550px;
+  height: 550px;
+  bottom: -15%;
+  right: -5%;
+  background: linear-gradient(135deg, #00f2fe, #38ef7d, #f5af19, #e100ff);
+  background-size: 400% 400%;
+  animation: floatMove2 26s infinite ease-in-out, smoothColor 22s ease-in-out infinite reverse;
 }
 
 .blob-3 {
-  width: 280px;
-  height: 280px;
-  background: #f3e5ab; /* Soft Light Gold */
-  top: 55%;
-  left: 45%;
-  animation-delay: -10s;
+  width: 420px;
+  height: 420px;
+  top: 35%;
+  left: 30%;
+  background: linear-gradient(225deg, #7f00ff, #ff007f, #ff4b1f, #11998e);
+  background-size: 400% 400%;
+  animation: floatMove3 20s infinite ease-in-out, smoothColor 15s ease-in-out infinite;
 }
 
-@keyframes float {
+@keyframes smoothColor {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatMove1 {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33% { transform: translate(100px, 80px) scale(1.1) rotate(120deg); }
+  66% { transform: translate(-40px, 120px) scale(0.9) rotate(240deg); }
+  100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+}
+
+@keyframes floatMove2 {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33% { transform: translate(-120px, -60px) scale(1.15) rotate(-120deg); }
+  66% { transform: translate(50px, -100px) scale(0.85) rotate(-240deg); }
+  100% { transform: translate(0, 0) scale(1) rotate(-360deg); }
+}
+
+@keyframes floatMove3 {
   0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(50px, 40px) scale(1.08); }
-  100% { transform: translate(-35px, 70px) scale(0.92); }
+  50% { transform: translate(80px, -90px) scale(1.2); }
+  100% { transform: translate(0, 0) scale(1); }
 }
 
-/* Container & Layout */
+/* Layout Container */
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 3.5rem 1.5rem;
+  padding: 4rem 1.5rem;
 }
 
+/* Header & Typography Update */
 .header {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.8rem;
 }
 
 .title {
-  font-size: 2.4rem;
-  color: #d4af37;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-  text-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+  font-family: 'Syne', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.6rem;
+  background: linear-gradient(135deg, #ffffff 40%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
 }
 
 .subtitle {
-  color: #999;
-  font-size: 0.95rem;
-  letter-spacing: 0.5px;
+  color: #a0a0a0;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
-/* Search Input */
+/* Search Box Modern Styling */
 .search-box {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .search-box input {
   width: 100%;
-  padding: 0.9rem 1.2rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  border-radius: 10px;
+  padding: 1rem 1.4rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
   color: #f0f0f0;
-  font-size: 0.95rem;
+  font-size: 1rem;
   outline: none;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
   transition: all 0.3s ease;
 }
 
 .search-box input:focus {
-  border-color: #d4af37;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-/* Note List */
+/* Note List Container (Grid 2 Kolom di Layar Lebar) */
 .note-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1.5rem;
 }
 
+/* Card Redirect Styling */
 .note-card {
   text-decoration: none;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: 12px;
-  padding: 1.3rem 1.6rem;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140px;
+  backdrop-filter: blur(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Card Hover Effect */
+.note-card:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(212, 175, 55, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
-.note-card:hover {
-  border-color: #d4af37;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15);
-  background: rgba(212, 175, 55, 0.05);
+/* Badge Tag Kategori */
+.note-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #d4af37;
+  background: rgba(212, 175, 55, 0.12);
+  padding: 5px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
 }
 
 .note-info h3 {
-  font-weight: 500;
-  color: #f0f0f0;
-  font-size: 1.1rem;
-  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #e5e5e5;
+  font-size: 1.15rem;
+  line-height: 1.4;
   transition: color 0.3s ease;
 }
 
 .note-card:hover .note-info h3 {
-  color: #d4af37;
-}
-
-.note-tag {
-  font-size: 0.75rem;
-  color: #d4af37;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  opacity: 0.8;
+  color: #ffffff;
 }
 
 .arrow {
   color: #d4af37;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   transition: transform 0.3s ease;
 }
 
 .note-card:hover .arrow {
   transform: translateX(6px);
+}
+
+/* Responsive adjustment */
+@media (max-width: 480px) {
+  .note-list {
+    grid-template-columns: 1fr;
+  }
+  .title {
+    font-size: 2.3rem;
+  }
 }
