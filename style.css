@@ -417,6 +417,21 @@ p { color: var(--text-muted); line-height: 1.6; font-size: 0.92rem; }
 .modal-content img { width: 100%; height: auto; max-height: 70vh; margin-top: 16px; border-radius: 12px; }
 .close-btn { position: absolute; top: 12px; right: 20px; font-size: 1.8rem; color: var(--text-muted); cursor: pointer; }
 
+.btn-catatan {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #D4AF37; 
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-catatan:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px); /* Efek terangkat sedikit */
+}
 /* Grid Spanning */
 .col-12 { grid-column: span 12; }
 .col-8  { grid-column: span 8; }
