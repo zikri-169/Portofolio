@@ -226,3 +226,16 @@ body {
     font-size: 2.3rem;
   }
 }
+/* Teks pesan jika tidak ada hasil */
+.no-result {
+  display: none;
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #888;
+  padding: 2rem 0;
+  font-size: 0.95rem;
+}
+
+.no-result.show {
+  display: block;
+}
